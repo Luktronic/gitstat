@@ -54,10 +54,16 @@ export PATH="$HOME/bin:$PATH"
 
 Navigate to any Git repository and run:
 ```bash
-gitstat
+gitstat <optional arguments>
 ```
 
 The tool will analyze the current branch and display statistics for all contributors.
+
+### Additional arguments
+
+|    Argument    |      Description      |
+|----------------|-----------------------|
+| `--skip-chart` | Skip chart generation |
 
 ## Dependencies
 - Java 21 or later

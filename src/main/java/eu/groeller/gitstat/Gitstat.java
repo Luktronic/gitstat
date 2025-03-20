@@ -29,12 +29,17 @@ public class Gitstat {
                 
                 System.out.println(resultTable.print());
 
+                if(args.length > 0 && args[0].equals("--skip-chart")) {
+                    System.out.println("\nSkipping chart generation");
+                } else {
+
                 List<DateCommitRecord> timeSeriesData = analyzer.getTimeSeriesData(true);
                 ChartGenerator chartGenerator = new ChartGenerator();
                 Path outputPath = Path.of("git-statistics.html");
-                
-                chartGenerator.generateCharts(timeSeriesData, outputPath);
-                System.out.println("\nCharts generated at: " + outputPath.toAbsolutePath());
+                    
+                    chartGenerator.generateCharts(timeSeriesData, outputPath);
+                    System.out.println("\nCharts generated at: " + outputPath.toAbsolutePath());
+                }
 
                 long endTime = System.currentTimeMillis();
                 System.out.printf("%nTime taken: %.2f seconds%n", (endTime - startTime) / 1000.0);
